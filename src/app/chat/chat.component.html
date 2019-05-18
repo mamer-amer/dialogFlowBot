@@ -1,20 +1,30 @@
-<div *ngFor="let msg of messages">
-    {{msg}}
+<div class="container">
+  DIALOG FLOW CHAT  
 </div>
+<div class="container" style="overflow-x:scroll; height:300px;">
+  <div *ngFor="let m of messages">
+      
+      <div class="container">
+          <img [src]="m.imgUrl" alt="Avatar" style="width:100%;">
+          <p>{{m.msg}}</p>
+      </div>
 
-
-
-<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-  <div class="form-group">
-    <label for="name">Chat</label>
-    <input type="text" class="form-control" 
-           required
-           [(ngModel)]="chatmsg" name="chatmsg"
-           >
   </div>
 
-  
+</div>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <div class="form-group">
+      <label for="name">Chat</label>
+      <input type="text" class="form-control" 
+            required
+            [(ngModel)]="chatmsg" name="chatmsg"
+            >
+    </div>
 
-  <button type="submit" class="btn btn-success" >Submit</button>
+    
 
-</form>
+    <button type="submit" class="btn btn-success" >Submit</button>
+
+  </form>
+</div>
