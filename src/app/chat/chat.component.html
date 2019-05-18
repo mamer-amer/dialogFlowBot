@@ -6,7 +6,8 @@
       
       <div class="container">
           <img [src]="m.imgUrl" alt="Avatar" style="width:100%;">
-          <p>{{m.msg}}</p>
+          <p>{{m.message}}</p>
+          <p>{{m.timestamp | date: 'M/d/yy, h:mm a'}}</p>
       </div>
 
   </div>

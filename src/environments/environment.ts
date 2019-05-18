@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  client:"712a1b41e5eb43e6976e3836019ae5cc"
+  baseUrl:"http://localhost:8080/api/sendmsg",
+  sender:"shezy"
 };
 
 /*

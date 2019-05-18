@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatServiceService } from '../chat-service.service';
 import { message } from '../message';
+import { UUID } from 'angular2-uuid';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'chat',
@@ -30,23 +32,28 @@ export class ChatComponent implements OnInit {
 
   onSubmit(){
     console.log("my msg",this.chatmsg)
-    this.messages.push({msg:this.chatmsg,imgUrl:this.myImgUrl,name:'shezy'})
-    this.ChatService.talk(this.chatmsg);
-    this.ChatService.getMessages().subscribe(msgs =>{
+    //this.messages.push({msg:this.chatmsg,imgUrl:this.myImgUrl,name:'shezy'})
+let date = new Date()
+
+    let requestPayload = {     
+	
+        messageId:UUID.UUID(),
+        message:this.chatmsg,
+        sender:environment.sender,
+        timestamp:date.getTime()
       
-        //this.res = msgs;
-        console.log(msgs);
-        
-       let found = this.messages.findIndex(f => f.msg === msgs);
-        console.log(found)
-         if(found == -1){
-           this.messages.push({msg:msgs,imgUrl:this.botImgUrl,name:'Bot'});
-       
-         } 
-        
-     
-      console.log(this.messages)
+    }
+    console.log(requestPayload)
+    
+    this.messages.push({...requestPayload,imgUrl:this.myImgUrl})
+
+    this.ChatService.sendMessage(requestPayload).subscribe(response =>{
+      console.log(response)
+      this.messages.push({...response,imgUrl:this.botImgUrl});
     })
-  }
+    
+    
+    
+    }
 
 }
