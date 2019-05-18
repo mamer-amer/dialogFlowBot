@@ -1,0 +1,20 @@
+<div *ngFor="let msg of messages">
+    {{msg}}
+</div>
+
+
+
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  <div class="form-group">
+    <label for="name">Chat</label>
+    <input type="text" class="form-control" 
+           required
+           [(ngModel)]="chatmsg" name="chatmsg"
+           >
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-success" >Submit</button>
+
+</form>
