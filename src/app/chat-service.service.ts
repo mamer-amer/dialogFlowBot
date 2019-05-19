@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient'
 import { message } from './message';
 import { Observable, of } from 'rxjs';
 import { Subject }    from 'rxjs';

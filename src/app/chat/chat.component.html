@@ -1,11 +1,12 @@
 <div class="container">
   DIALOG FLOW CHAT  
 </div>
-<div class="container" style="overflow-x:scroll; height:300px;">
+<div class="container" #scrollMe style="overflow-x:scroll; height:300px;">
   <div *ngFor="let m of messages">
       
-      <div class="container">
+      <div  class="container" style="width:50%">
           <img [src]="m.imgUrl" alt="Avatar" style="width:100%;">
+          <h4>{{m.sender}}</h4>
           <p>{{m.message}}</p>
           <p>{{m.timestamp | date: 'M/d/yy, h:mm a'}}</p>
       </div>
